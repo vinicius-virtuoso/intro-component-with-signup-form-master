@@ -1,0 +1,235 @@
+$Red: hsl(0, 100%, 74%);
+$Green: hsl(154, 59%, 51%);
+$Blue: hsl(248, 32%, 49%);
+$Dark-Blue: hsl(249, 10%, 26%);
+$Grayish-Blue: hsl(246, 25%, 77%);
+
+$Font-body: 16px;
+$Font-family: "Poppins", sans-serif;
+$Shadow: 0 0.5rem 0 0 rgba(0, 0, 0, 0.19);
+$Radius: 0.8rem;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: $Font-family;
+  background: url("../images/bg-intro-desktop.png") $Red;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding: 0 3rem;
+}
+
+main {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  height: calc(100vh - 1rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .box {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    max-width: 550px;
+
+    h1 {
+      font-size: 3rem;
+      line-height: 1.1;
+      color: #fff;
+    }
+    p {
+      font-size: $Font-body;
+      margin: 2rem 0;
+      color: #fff;
+      opacity: 0.9;
+    }
+
+    &:nth-child(2) {
+      max-width: 570px;
+
+      p {
+        text-align: center;
+        font-weight: 400;
+        font-size: $Font-family;
+        background: $Blue;
+        color: hsla(0, 0%, 100%, 0.8);
+        padding: 1.2rem 0;
+        letter-spacing: 0.1rem;
+        border-radius: $Radius;
+        box-shadow: $Shadow;
+
+        span {
+          font-weight: 600;
+          opacity: 1;
+          color: #fff;
+        }
+      }
+
+      form {
+        background: #fff;
+        border-radius: $Radius;
+        padding: 2.5rem;
+        box-shadow: $Shadow;
+        transition: all 0.3s ease;
+
+        .box-input {
+          margin-bottom: 1.5rem;
+          transition: all 0.3s ease;
+          position: relative;
+
+          input {
+            padding: 1.2rem 3.5rem 1.2rem 2.5rem;
+            width: 100%;
+            font-family: $Font-family;
+            font-size: $Font-body;
+            font-weight: 600;
+            outline: none;
+            border: 0;
+            border-radius: 0.3rem;
+            border: 1px solid $Blue;
+            color: #000;
+
+            &::placeholder {
+              color: $Dark-Blue;
+              opacity: 0.8;
+            }
+
+            &.error {
+              border-color: $Red;
+              color: $Red;
+            }
+            &.error ~ .icon-error,
+            &.error ~ .error-span {
+              display: block;
+            }
+          }
+          .icon-error {
+            display: none;
+            position: absolute;
+            top: 0;
+            right: 0;
+            transform: translate(-20px, 60%);
+          }
+          .error-span {
+            display: none;
+            width: 100%;
+            text-align: right;
+            font-size: 12px;
+            margin: 0.2rem 0 1.5rem 0;
+            color: $Red;
+            font-style: italic;
+            font-weight: 500;
+          }
+        }
+        button {
+          width: 100%;
+          border: 0;
+          cursor: pointer;
+          font-family: $Font-family;
+          font-size: $Font-body;
+          font-weight: 700;
+          color: #fff;
+          background: $Green;
+          border-radius: 0.3rem;
+          padding: 0.8rem 2.5rem;
+          text-transform: uppercase;
+          letter-spacing: 0.1rem;
+          box-shadow: 0 0.35rem 0 0 rgb(51, 187, 128);
+          transition: 0.2s;
+
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+        small {
+          margin-top: 1rem;
+          display: block;
+          text-align: center;
+          font-size: 12px;
+          font-weight: 600;
+          color: $Grayish-Blue;
+          span {
+            color: $Red;
+          }
+        }
+      }
+    }
+  }
+}
+
+.attribution {
+  height: 1rem;
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+@media (max-width: 780px) {
+  body {
+    padding: 1rem;
+  }
+  main {
+    height: 100%;
+    flex-direction: column;
+    .box {
+      width: 100%;
+      max-width: 525px;
+      text-align: center;
+      h1 {
+        font-size: 2rem;
+        margin-top: 5rem;
+      }
+      &:nth-child(2) {
+        width: 100%;
+        max-width: 525px;
+
+        p {
+          padding: 1rem 7.5rem;
+        }
+        form {
+          padding: 1.5rem;
+
+          .box-input {
+            input {
+              padding: 1rem 3.5rem 1rem 1rem;
+            }
+            .icon-error {
+              transform: translate(-20px, 50%);
+            }
+          }
+          button {
+            padding: 1rem;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 480px) {
+  body {
+    padding: 1rem;
+  }
+  main {
+    flex-direction: column;
+    .box {
+      width: 100%;
+      max-width: 100%;
+      text-align: center;
+      &:nth-child(2) {
+        width: 100%;
+        max-width: 100%;
+        p {
+          padding: 1rem 3rem;
+        }
+      }
+    }
+  }
+}
